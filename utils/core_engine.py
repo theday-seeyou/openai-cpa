@@ -1086,6 +1086,7 @@ class RegEngine:
         if self.is_running():
             return
         self._force_stopped = False
+        cfg.GLOBAL_STOP = False
         self.thread_stop_event.clear()
         args.check_stop = lambda: self.thread_stop_event.is_set()
         self.current_thread = threading.Thread(
